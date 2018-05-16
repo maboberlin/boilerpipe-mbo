@@ -18,8 +18,6 @@
         <outputRelativeToContentRoot value="true" />
         <module name="boilerpipe-common" />
         <module name="boilerpipe-demo" />
-        <module name="nekohtml" />
-        <module name="nekohtml-relocated" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
