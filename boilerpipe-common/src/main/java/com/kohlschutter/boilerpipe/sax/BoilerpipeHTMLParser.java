@@ -17,12 +17,11 @@
  */
 package com.kohlschutter.boilerpipe.sax;
 
-import org.apache.xerces.parsers.AbstractSAXParser;
-
 import com.kohlschutter.boilerpipe.BoilerpipeDocumentSource;
 import com.kohlschutter.boilerpipe.document.TextBlock;
 import com.kohlschutter.boilerpipe.document.TextDocument;
-import com.kohlschutter.boilerpipe.org.cyberneko.html.HTMLConfiguration;
+import org.apache.xerces.parsers.AbstractSAXParser;
+import org.cyberneko.html.HTMLConfiguration;
 
 /**
  * A simple SAX Parser, used by {@link BoilerpipeSAXInput}. The parser uses <a
@@ -41,7 +40,7 @@ public class BoilerpipeHTMLParser extends AbstractSAXParser implements Boilerpip
 
   /**
    * Constructs a {@link BoilerpipeHTMLParser} using the given {@link BoilerpipeHTMLContentHandler}.
-   * 
+   *
    * @param contentHandler
    */
   public BoilerpipeHTMLParser(BoilerpipeHTMLContentHandler contentHandler) {
@@ -66,7 +65,7 @@ public class BoilerpipeHTMLParser extends AbstractSAXParser implements Boilerpip
   /**
    * Returns a {@link TextDocument} containing the extracted {@link TextBlock} s. NOTE: Only call
    * this after {@link #parse(org.xml.sax.InputSource)}.
-   * 
+   *
    * @return The {@link TextDocument}
    */
   public TextDocument toTextDocument() {

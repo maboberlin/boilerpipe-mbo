@@ -20,6 +20,7 @@ package com.kohlschutter.boilerpipe.sax;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.Charset;
@@ -39,13 +40,14 @@ public class HTMLFetcher {
 
   /**
    * Fetches the document at the given URL, using {@link URLConnection}.
-   * 
+   *
    * @param url
    * @return
    * @throws IOException
    */
   public static HTMLDocument fetch(final URL url) throws IOException {
-    final URLConnection conn = url.openConnection();
+    final HttpURLConnection conn = (HttpURLConnection)url.openConnection();
+    conn.setRequestProperty("User-Agent", "Mozilla/4.76");
     final String ct = conn.getContentType();
 
     if (ct == null || !(ct.equals("text/html") || ct.startsWith("text/html;"))) {

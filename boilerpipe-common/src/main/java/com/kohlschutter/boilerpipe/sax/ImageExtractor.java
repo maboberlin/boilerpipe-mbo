@@ -17,6 +17,11 @@
  */
 package com.kohlschutter.boilerpipe.sax;
 
+import com.kohlschutter.boilerpipe.BoilerpipeExtractor;
+import com.kohlschutter.boilerpipe.BoilerpipeProcessingException;
+import com.kohlschutter.boilerpipe.document.Image;
+import com.kohlschutter.boilerpipe.document.TextBlock;
+import com.kohlschutter.boilerpipe.document.TextDocument;
 import java.io.IOException;
 import java.io.StringReader;
 import java.net.URL;
@@ -25,20 +30,13 @@ import java.util.BitSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.apache.xerces.parsers.AbstractSAXParser;
+import org.cyberneko.html.HTMLConfiguration;
 import org.xml.sax.Attributes;
 import org.xml.sax.ContentHandler;
 import org.xml.sax.InputSource;
 import org.xml.sax.Locator;
 import org.xml.sax.SAXException;
-
-import com.kohlschutter.boilerpipe.BoilerpipeExtractor;
-import com.kohlschutter.boilerpipe.BoilerpipeProcessingException;
-import com.kohlschutter.boilerpipe.document.Image;
-import com.kohlschutter.boilerpipe.document.TextBlock;
-import com.kohlschutter.boilerpipe.document.TextDocument;
-import com.kohlschutter.boilerpipe.org.cyberneko.html.HTMLConfiguration;
 
 /**
  * Extracts the images that are enclosed by extracted content.
@@ -48,7 +46,7 @@ public final class ImageExtractor {
 
   /**
    * Returns the singleton instance of {@link ImageExtractor}.
-   * 
+   *
    * @return
    */
   public static ImageExtractor getInstance() {
@@ -60,7 +58,7 @@ public final class ImageExtractor {
 
   /**
    * Processes the given {@link TextDocument} and the original HTML text (as a String).
-   * 
+   *
    * @param doc The processed {@link TextDocument}.
    * @param origHTML The original HTML document.
    * @return A List of enclosed {@link Image}s
@@ -74,7 +72,7 @@ public final class ImageExtractor {
   /**
    * Processes the given {@link TextDocument} and the original HTML text (as an {@link InputSource}
    * ).
-   * 
+   *
    * @param doc The processed {@link TextDocument}.
    * @param origHTML The original HTML document.
    * @return A List of enclosed {@link Image}s
@@ -91,7 +89,7 @@ public final class ImageExtractor {
   /**
    * Fetches the given {@link URL} using {@link HTMLFetcher} and processes the retrieved HTML using
    * the specified {@link BoilerpipeExtractor}.
-   * 
+   *
    * @param doc The processed {@link TextDocument}.
    * @param is The original HTML document.
    * @return A List of enclosed {@link Image}s
